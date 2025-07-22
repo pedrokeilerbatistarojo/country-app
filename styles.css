@@ -65,16 +65,16 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
-    transition: all 0.3s ease-in-out; /* Smoother transitions for theme changes */
+    transition: all 0.3s ease-in-out;
 }
 
 .container {
-    max-width: 1300px; /* Slightly wider container for more breathing room */
+    max-width: 1300px;
     margin: 0 auto;
-    padding: 0 var(--spacing-lg); /* Consistent horizontal padding */
+    padding: 0 var(--spacing-lg);
 }
 
-/* Header Styles */
+/* Header Styles (sin cambios) */
 .header {
     background-color: var(--element-color);
     box-shadow: var(--shadow);
@@ -88,11 +88,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--spacing-md) var(--spacing-lg); /* Adjusted padding */
+    padding: var(--spacing-md) var(--spacing-lg);
 }
 
 .logo {
-    font-size: 1.6rem; /* Slightly larger logo */
+    font-size: 1.6rem;
     font-weight: var(--font-weight-bold);
     color: var(--text-color);
 }
@@ -109,33 +109,33 @@ body {
     gap: var(--spacing-xs);
     padding: var(--spacing-xs) var(--spacing-sm);
     border-radius: var(--border-radius);
-    transition: all 0.2s ease-in-out; /* Softer transition */
+    transition: all 0.2s ease-in-out;
 }
 
 .theme-toggle:hover {
-    background-color: rgba(var(--text-color), 0.1); /* Subtle hover effect */
-    transform: translateY(-1px); /* Slight lift */
+    background-color: rgba(var(--text-color), 0.1);
+    transform: translateY(-1px);
 }
 
-/* Main Content */
+/* Main Content (sin cambios) */
 .main {
-    padding: var(--spacing-xl) 0; /* More vertical padding */
+    padding: var(--spacing-xl) 0;
 }
 
-/* Controls */
+/* Controls (sin cambios significativos) */
 .controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: var(--spacing-xl); /* Increased bottom margin */
-    gap: var(--spacing-lg); /* Larger gap between elements */
+    margin-bottom: var(--spacing-xl);
+    gap: var(--spacing-lg);
     flex-wrap: wrap;
 }
 
 .search-container {
     position: relative;
     flex: 1;
-    max-width: 450px; /* Slightly wider search bar */
+    max-width: 450px;
 }
 
 .search-icon {
@@ -144,18 +144,18 @@ body {
     top: 50%;
     transform: translateY(-50%);
     color: var(--input-color);
-    font-size: 1.1rem; /* Slightly larger icon */
+    font-size: 1.1rem;
 }
 
 .search-input {
     width: 100%;
-    padding: var(--spacing-sm) var(--spacing-md) var(--spacing-sm) 3.5rem; /* Adjusted padding for icon */
+    padding: var(--spacing-sm) var(--spacing-md) var(--spacing-sm) 3.5rem;
     border: none;
     border-radius: var(--border-radius);
     background-color: var(--element-color);
     color: var(--text-color);
     font-family: var(--font-family);
-    font-size: 1rem; /* Slightly larger text */
+    font-size: 1rem;
     box-shadow: var(--shadow);
     transition: all 0.3s ease-in-out;
 }
@@ -165,8 +165,8 @@ body {
 }
 
 .search-input:focus {
-    outline: 2px solid var(--accent-color); /* Clearer focus indicator */
-    box-shadow: 0 0 0 4px rgba(var(--accent-color), 0.2); /* Soft glow on focus */
+    outline: 2px solid var(--accent-color);
+    box-shadow: 0 0 0 4px rgba(var(--accent-color), 0.2);
 }
 
 .filter-container {
@@ -174,7 +174,7 @@ body {
 }
 
 .filter-select {
-    padding: var(--spacing-sm) var(--spacing-xl) var(--spacing-sm) var(--spacing-md); /* Adjusted padding for arrow */
+    padding: var(--spacing-sm) var(--spacing-xl) var(--spacing-sm) var(--spacing-md);
     border: none;
     border-radius: var(--border-radius);
     background-color: var(--element-color);
@@ -183,12 +183,12 @@ body {
     font-size: 1rem;
     box-shadow: var(--shadow);
     cursor: pointer;
-    appearance: none; /* Hide default arrow */
-    background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23${encodeURIComponent(getComputedStyle(document.documentElement).getPropertyValue('--text-color').replace('#', ''))}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6,9 12,15 18,9'></polyline></svg>"); /* Custom SVG arrow */
+    appearance: none;
+    /* La URL del SVG se actualizará vía JS para el color dinámico */
     background-repeat: no-repeat;
     background-position: right var(--spacing-sm) center;
-    background-size: 18px; /* Slightly larger arrow */
-    min-width: 200px; /* Wider filter */
+    background-size: 18px;
+    min-width: 200px;
     transition: all 0.3s ease-in-out;
 }
 
@@ -197,28 +197,31 @@ body {
     box-shadow: 0 0 0 4px rgba(var(--accent-color), 0.2);
 }
 
-/* Countries Grid */
+/* Countries Grid - AJUSTES CLAVE AQUÍ */
 .countries-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* More flexible grid */
-    gap: var(--spacing-xl); /* Increased gap */
+    /* Por defecto para desktop (4 columnas) */
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-xl); /* Espacio entre tarjetas */
     margin-bottom: var(--spacing-xl);
 }
 
 .country-card {
     background-color: var(--element-color);
     border-radius: var(--border-radius);
-    overflow: hidden;
+    overflow: hidden; /* Asegura que la imagen no se desborde del borde redondeado */
     box-shadow: var(--shadow);
     cursor: pointer;
-    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out; /* Smoother hover */
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
     text-decoration: none;
     color: inherit;
+    /* Elimina el margen inferior si lo tuviera, para que el gap lo maneje */
+    margin-bottom: 0;
 }
 
 .country-card:hover {
-    transform: translateY(-5px); /* More noticeable lift */
-    box-shadow: 0 8px 20px var(--shadow-light); /* More prominent hover shadow */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-light);
 }
 body.dark-mode .country-card:hover {
     box-shadow: 0 8px 20px var(--shadow-dark);
@@ -226,38 +229,39 @@ body.dark-mode .country-card:hover {
 
 .country-flag {
     width: 100%;
-    height: 180px; /* Slightly reduced flag height for better aspect ratio */
-    object-fit: cover; /* Ensure image covers the area without distortion */
-    display: block; /* Remove extra space below image */
-    background-color: var(--bg-color); /* Placeholder color if image fails */
-    border-bottom: 1px solid rgba(var(--text-color), 0.05); /* Subtle border */
-}
-.country-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    vertical-align: middle;
+    height: 180px; /* Altura fija para las banderas, como en el ejemplo */
+    object-fit: cover; /* Recorta la imagen para que cubra el área */
+    display: block; /* Elimina el espacio extra debajo de las imágenes */
+    background-color: var(--bg-color); /* Color de fondo mientras carga la imagen */
+    border-bottom: 1px solid rgba(var(--text-color), 0.05); /* Borde sutil */
 }
 
 .country-info {
-    padding: var(--spacing-lg); /* Consistent padding */
+    padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg); /* Más padding abajo para la tarjeta */
+    display: flex;
+    flex-direction: column;
+    /* Asegura que el contenido esté bien alineado y tenga un mínimo de altura */
+    min-height: 120px;
+    justify-content: space-between;
 }
 
 .country-name {
-    font-size: 1.35rem; /* Slightly larger name */
+    font-size: 1.35rem;
     font-weight: var(--font-weight-bold);
     margin-bottom: var(--spacing-sm);
     color: var(--text-color);
+    /* Ajustes para el nombre del país en la tarjeta */
+    line-height: 1.3;
 }
 
 .country-details {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem; /* Slightly larger gap */
+    gap: 0.25rem; /* Reducido ligeramente para un aspecto más compacto */
 }
 
 .country-detail-item {
-    font-size: 0.95rem; /* Slightly larger text */
+    font-size: 0.9rem; /* Ligeramente más pequeño para la información de detalle */
     color: var(--text-color);
     font-weight: var(--font-weight-regular);
 }
@@ -266,7 +270,7 @@ body.dark-mode .country-card:hover {
     font-weight: var(--font-weight-semibold);
 }
 
-/* Loading */
+/* Loading, No Results (sin cambios significativos) */
 .loading {
     text-align: center;
     padding: var(--spacing-xl);
@@ -275,7 +279,7 @@ body.dark-mode .country-card:hover {
 }
 
 .spinner {
-    width: 50px; /* Larger spinner */
+    width: 50px;
     height: 50px;
     border: 5px solid rgba(var(--accent-color), 0.3);
     border-left: 5px solid var(--accent-color);
@@ -296,11 +300,11 @@ body.dark-mode .country-card:hover {
     font-weight: var(--font-weight-semibold);
 }
 
-/* Detail Page */
+/* Detail Page (sin cambios significativos en general, pero se mantiene la estructura) */
 .back-button {
     background-color: var(--element-color);
     border: none;
-    padding: var(--spacing-sm) var(--spacing-lg);
+    padding: 0.75rem 2rem;
     border-radius: var(--border-radius);
     color: var(--text-color);
     font-family: var(--font-family);
@@ -308,33 +312,33 @@ body.dark-mode .country-card:hover {
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: var(--spacing-xs);
-    margin-bottom: var(--spacing-xl);
+    gap: 0.5rem;
+    margin-bottom: 3rem;
     box-shadow: var(--shadow);
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease;
 }
 
 .back-button:hover {
-    background-color: var(--bg-color); /* Matches background on hover */
+    background-color: var(--bg-color);
     transform: translateY(-1px);
 }
 
 .country-detail {
     display: grid;
-    grid-template-columns: 1fr 1.2fr; /* Flag slightly smaller, info slightly larger */
-    gap: var(--spacing-xl) 6rem; /* More space between flag and info */
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--spacing-xl) 6rem;
     align-items: center;
 }
 
 .detail-flag {
     width: 100%;
-    max-width: 600px; /* Increased max-width */
-    height: 400px; /* Increased height */
+    max-width: 600px;
+    height: 400px;
     object-fit: cover;
     display: block;
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow); /* Shadow for the flag */
-    background-color: var(--bg-color); /* Placeholder */
+    box-shadow: var(--shadow);
+    background-color: var(--bg-color);
 }
 .country-detail img {
     width: 100%;
@@ -345,7 +349,7 @@ body.dark-mode .country-card:hover {
 }
 
 .detail-info h2 {
-    font-size: 2.5rem; /* Larger, more impactful heading */
+    font-size: 2.5rem;
     font-weight: var(--font-weight-bold);
     margin-bottom: var(--spacing-lg);
     color: var(--text-color);
@@ -353,13 +357,13 @@ body.dark-mode .country-card:hover {
 
 .detail-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Flexible columns for details */
-    gap: var(--spacing-sm) var(--spacing-xl); /* Adjusted spacing */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-sm) var(--spacing-xl);
     margin-bottom: var(--spacing-lg);
 }
 
 .detail-item {
-    margin-bottom: 0.5rem; /* Still relevant for vertical spacing in a column */
+    margin-bottom: 0.5rem;
     font-size: 1rem;
     color: var(--text-color);
     font-weight: var(--font-weight-regular);
@@ -379,10 +383,10 @@ body.dark-mode .country-card:hover {
 
 .border-countries h3 {
     font-weight: var(--font-weight-semibold);
-    margin-bottom: 0; /* Align with tags */
+    margin-bottom: 0;
     margin-right: var(--spacing-sm);
     font-size: 1.1rem;
-    flex-shrink: 0; /* Prevent shrinking on smaller screens */
+    flex-shrink: 0;
 }
 
 .border-tags {
@@ -393,15 +397,15 @@ body.dark-mode .country-card:hover {
 
 .border-tag {
     background-color: var(--element-color);
-    padding: 0.4rem var(--spacing-sm); /* Slightly smaller padding */
-    border-radius: 4px; /* Slightly less rounded */
-    font-size: 0.85rem; /* Smaller font for tags */
+    padding: 0.4rem var(--spacing-sm);
+    border-radius: 4px;
+    font-size: 0.85rem;
     color: var(--text-color);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); /* Lighter shadow for tags */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     text-decoration: none;
-    white-space: nowrap; /* Prevent tags from breaking lines awkwardly */
+    white-space: nowrap;
 }
 body.dark-mode .border-tag {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -412,25 +416,26 @@ body.dark-mode .border-tag {
     transform: translateY(-1px);
 }
 
-/* Responsive Design */
+/* Responsive Design - AJUSTES CLAVE AQUÍ */
 @media (max-width: 1024px) {
     .countries-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust for smaller screens */
+        /* Tablet: 2 columnas */
+        grid-template-columns: repeat(2, 1fr);
         gap: var(--spacing-lg);
     }
 
     .country-detail {
         grid-template-columns: 1fr;
         gap: var(--spacing-lg);
-        text-align: left; /* Keep text aligned left */
+        text-align: left;
     }
 
     .detail-flag {
-        max-width: 100%; /* Use full width */
-        height: 250px; /* Adjust height */
+        max-width: 100%;
+        height: 250px;
     }
     .detail-info h2 {
-        text-align: center; /* Center align title on smaller screens */
+        text-align: center;
     }
     .detail-content {
         grid-template-columns: 1fr;
@@ -459,6 +464,7 @@ body.dark-mode .border-tag {
     }
 
     .countries-grid {
+        /* Mobile: 1 columna */
         grid-template-columns: 1fr;
         gap: var(--spacing-lg);
     }
@@ -498,12 +504,12 @@ body.dark-mode .border-tag {
     }
 }
 
-/* Hide/Show Pages */
+/* Hide/Show Pages (sin cambios) */
 .page {
-    animation: fadeIn 0.4s ease-out; /* Slightly longer, smoother fade-in */
+    animation: fadeIn 0.4s ease-out;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); } /* Slight movement on fade-in */
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
