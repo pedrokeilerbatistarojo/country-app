@@ -29,7 +29,7 @@ This application uses ES Modules and requires a local web server to run due to b
 
 1.  **Clone the repository:**
     ```bash
-    git clone [YOUR_REPOSITORY_URL]
+    git clone https://github.com/pedrokeilerbatistarojo/country-app.git
     cd country-app
     ```
 2.  **Install `http-server` globally** (requires Node.js & npm):
