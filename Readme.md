@@ -21,7 +21,7 @@ A responsive web application built with HTML, CSS, and JavaScript, consuming the
 * **JavaScript (ES6+)**
 * **REST Countries API v3.1**
 * **Font Awesome**
-* **Google Fonts (Poppins)**
+* **Google Fonts (Nunito Sans, Poppins)**
 
 ## How to Run Locally
 

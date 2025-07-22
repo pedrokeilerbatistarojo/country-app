@@ -227,13 +227,25 @@ body.dark-mode .country-card:hover {
     box-shadow: 0 8px 20px var(--shadow-dark);
 }
 
+@media (max-width: 1024px) {
+    .country-flag {
+        height: 200px!important;
+    }
+}
+
+@media (max-width: 767px) {
+    .country-flag {
+        height: auto!important;
+    }
+}
+
 .country-flag {
     width: 100%;
-    height: 180px; /* Altura fija para las banderas, como en el ejemplo */
-    object-fit: cover; /* Recorta la imagen para que cubra el área */
-    display: block; /* Elimina el espacio extra debajo de las imágenes */
-    background-color: var(--bg-color); /* Color de fondo mientras carga la imagen */
-    border-bottom: 1px solid rgba(var(--text-color), 0.05); /* Borde sutil */
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid rgba(var(--text-color), 0.05);
 }
 
 .country-info {
@@ -435,7 +447,7 @@ body.dark-mode .border-tag {
         height: 250px;
     }
     .detail-info h2 {
-        text-align: center;
+        text-align: left;
     }
     .detail-content {
         grid-template-columns: 1fr;
